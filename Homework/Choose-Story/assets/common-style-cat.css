@@ -1,0 +1,117 @@
+    html {
+        font-family: 'Open Sans', sans-serif;
+        background: url(cat.gif) no-repeat center center fixed !important;
+        background-size: cover !important;
+    }
+    
+    body {
+        height: 100%;
+    }
+    
+    .body-nocolor {
+        background: transparent;
+    }
+    
+    h1 {
+        color: #f0f0f0;
+        text-shadow: 1px 1px 2px #000;
+        font-weight: 300;
+        font-size: 40pt;
+        text-align: center;
+        padding-top: 6%;
+        padding-bottom: 2%;
+    }
+    /* General Button Styles */
+    
+    p {
+        position: fixed;
+        text-align: center;
+        bottom: .25%;
+    }
+    
+    a {
+        color: red;
+        text-decoration: none;
+        -o-transition: .5s;
+        -ms-transition: .5s;
+        -moz-transition: .5s;
+        -webkit-transition: .5s;
+        transition: .5s;
+        font-weight: 900;
+        font-size: 18pt;
+    }
+    
+    a:hover {
+        color: #36E370;
+    }
+    
+    .button {
+        display: inline-block;
+        position: relative;
+        height: 60px;
+        width: 120px;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+    
+    .button:last-child {
+        margin-right: 0px;
+    }
+    
+    .button .inner {
+        display: block;
+        text-align: center;
+        line-height: 60px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+    
+    .button .inner .child {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+    }
+    /* Fade Animation */
+    
+    .fade .inner a {
+        opacity: 0;
+        transition: opacity .5s ease;
+        -moz-transition: opacity .5s ease;
+        -webkit-transition: opacity .5s ease;
+    }
+    
+    .fade .inner:hover a {
+        opacity: 1;
+        transition: opacity .5s ease;
+        -moz-transition: opacity .5s ease;
+        -webkit-transition: opacity .5s ease;
+    }
+    
+    .container {
+        position: relative;
+        max-height: 500px;
+        top: 25%;
+    }
+    
+    img {
+        padding-bottom: 50px;
+    }
+    
+    .left {
+        position: absolute;
+        width: 50%;
+        left: 0;
+        padding-left: 80px;
+        text-align: center;
+    }
+    
+    .right {
+        position: absolute;
+        width: 50%;
+        right: 0;
+        padding-right: 80px;
+        text-align: center;
+    }
