@@ -8,6 +8,20 @@ body {
     background: #EC3D3D;
 }
 
+a {
+    color: blue;
+    text-decoration: none;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+a:hover {
+    color: darkgreen;
+}
+
 h1 {
     text-align: center;
     color: white;

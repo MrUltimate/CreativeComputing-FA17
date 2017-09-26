@@ -7,10 +7,10 @@
     }
     
     body {
-        animation: colorchange 50s;
+        animation: colorchange 50s infinite;
         /* animation-name followed by duration in seconds*/
         /* you could also use milliseconds (ms) or something like 2.5s */
-        -webkit-animation: colorchange 50s;
+        -webkit-animation: colorchange 50s infinite;
         /* Chrome and Safari */
     }
     
@@ -109,6 +109,7 @@
         height: 100%;
         border-radius: 5px;
     }
+
     /* Fade Animation */
     
     .fade .inner a {
