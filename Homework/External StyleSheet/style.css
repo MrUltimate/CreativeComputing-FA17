@@ -1,0 +1,40 @@
+html {
+    font-family: sans-serif;
+    font: Helvetica;
+    color: white;
+}
+
+body {
+    background: #EC3D3D;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+    font: Helvetica;
+    padding-top: 4%;
+}
+
+p {
+    text-align: justify;
+    color: white;
+    padding-left: 4%;
+    padding-right: 4%;
+    font-family: sans-serif;
+    font: Helvetica;
+}
+
+ul {
+    padding-left: 10%;
+    font-family: sans-serif;
+    font: Helvetica;
+    color: white;
+}
+
+ol {
+    padding-left: 10%;
+    font-family: sans-serif;
+    font: Helvetica;
+    color: white;
+}
