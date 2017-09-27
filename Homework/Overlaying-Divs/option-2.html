@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: rebeccapurple;
+            margin: 0;
+        }
+
+        div {
+            position: fixed;
+            width: 500px;
+            height: 200px;
+            background-color: mediumpurple;
+            transform-origin: bottom right;
+            top: 50%;
+            margin-top: -100px;
+            left: 50%;
+            margin-left: -250px;
+        }
+
+        .opacity__1 {
+            opacity: .75;
+        }
+
+        .opacity__2 {
+            opacity: .5;
+        }
+
+        .opacity__3 {
+            opacity: .25;
+        }
+
+        .opacity__4 {
+            opacity: .5;
+        }
+
+        .deg__1 {
+            -ms-transform: rotate(20deg);
+            /* IE 9 */
+            -webkit-transform: rotate(20deg);
+            /* Chrome, Safari, Opera */
+            transform: rotate(20deg);
+        }
+
+        .deg__2 {
+            -ms-transform: rotate(10deg);
+            /* IE 9 */
+            -webkit-transform: rotate(10deg);
+            /* Chrome, Safari, Opera */
+            transform: rotate(10deg);
+        }
+
+        .deg__3 {
+            -ms-transform: rotate(2deg);
+            /* IE 9 */
+            -webkit-transform: rotate(2deg);
+            /* Chrome, Safari, Opera */
+            transform: rotate(2deg);
+        }
+
+        .deg__4 {
+            -ms-transform: rotate(3deg);
+            -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="opacity__4 deg__1"></div>
+    <div class="opacity__3 deg__2"></div>
+    <!--<div class="opacity__2 deg__3"></div>-->
+    <div class="opacity__1"></div>
+
+</body>
+
+</html>
