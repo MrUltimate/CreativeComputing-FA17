@@ -50,21 +50,31 @@
         }
 
         @-moz-keyframes spin {
-            100% {
+            50% {
                 -moz-transform: rotate(20deg);
+            }
+            100% {
+                -moz-transform: initial;
             }
         }
 
         @-webkit-keyframes spin {
-            100% {
+            50% {
                 -webkit-transform: rotate(20deg);
+            }
+            100% {
+                -webkit-transform: initial;
             }
         }
 
         @keyframes spin {
-            100% {
+            50% {
                 -webkit-transform: rotate(20deg);
                 transform: rotate(20deg);
+            }
+            100% {
+                -webkit-transform: initial;
+                transform: initial;
             }
         }
 
@@ -77,21 +87,31 @@
         }
 
         @-moz-keyframes spin1 {
-            100% {
+            50% {
                 -moz-transform: rotate(10deg);
+            }
+            100% {
+                -moz-transform: initial;
             }
         }
 
         @-webkit-keyframes spin1 {
-            100% {
+            50% {
                 -webkit-transform: rotate(10deg);
+            }
+            100% {
+                -webkit-transform: initial;
             }
         }
 
         @keyframes spin1 {
-            100% {
+            50% {
                 -webkit-transform: rotate(10deg);
                 transform: rotate(10deg);
+            }
+            100% {
+                -webkit-transform: initial;
+                transform: initial;
             }
         }
 
@@ -110,25 +130,25 @@
 */
 
         .animate__1 {
-            -webkit-animation: spin 1.3s ease;
-            -moz-animation: spin 1.3s ease;
-            animation: spin 1.3s ease;
+            -webkit-animation: spin 3s ease infinite;
+            -moz-animation: spin 3s ease infinite;
+            animation: spin 3s ease infinite;
             -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
         }
 
         .animate__2 {
-            -webkit-animation: spin1 1s ease;
-            -moz-animation: spin1 1s ease;
-            animation: spin1 1s ease;
+            -webkit-animation: spin1 3s ease infinite;
+            -moz-animation: spin1 3s ease infinite;
+            animation: spin1 3s ease infinite;
             -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
         }
 
         /*
         .animate__3 {
-            -webkit-animation: spin2 1s ease;
-            -moz-animation: spin2 1s ease;
+            -webkit-animation: spin2 3s ease;
+            -moz-animation: spin2 3s ease;
             animation: spin2 4s ease;
         }
 */
