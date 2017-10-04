@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f6f6f6;
+        }
+
+        .swatch {
+            position: absolute;
+            left: 50%;
+            top: 27%;
+            width: 300px;
+            height: 100px;
+            margin-left: -150px;
+            /*margin-top: -50px;*/
+            background-color: violet;
+            /*transform-origin: top left;*/
+        }
+
+        .purple {
+            background-color: purple;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .green {
+            background-color: chartreuse;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        @keyframes myRotation1 {
+            50% {
+                transform: translate(0px, 300px);
+            }
+            100% {
+                transform: initial;
+            }
+        }
+
+        @keyframes myRotation2 {
+            50% {
+                transform: translate(0px, 250px);
+            }
+            100% {
+                transform: initial;
+            }
+        }
+
+        @keyframes myRotation3 {
+            50% {
+                transform: translate(0px, 200px);
+            }
+            100% {
+                transform: initial;
+            }
+        }
+
+        @keyframes myRotation4 {
+            50% {
+                transform: translate(0px, 150px);
+            }
+            100% {
+                transform: initial;
+            }
+        }
+
+        @keyframes myRotation5 {
+            50% {
+                transform: translate(0px, 100px);
+            }
+            100% {
+                transform: initial;
+            }
+        }
+
+        @keyframes myRotation6 {
+            50% {
+                transform: translate(0px, 50px);
+            }
+            100% {
+                transform: initial;
+            }
+        }
+
+        @keyframes myRotation7 {
+            50% {
+                transform: translate(0px, 0px);
+            }
+            100% {
+                transform: initial;
+            }
+        }
+
+        .rotate-1 {
+            animation: myRotation1 2s ease infinite;
+        }
+
+        .rotate-2 {
+            animation: myRotation2 2s ease infinite;
+        }
+
+        .rotate-3 {
+            animation: myRotation3 2s ease infinite;
+        }
+
+        .rotate-4 {
+            animation: myRotation4 2s ease infinite;
+        }
+
+        .rotate-5 {
+            animation: myRotation5 2s ease infinite;
+        }
+
+        .rotate-6 {
+            animation: myRotation6 2s ease infinite;
+        }
+
+        .rotate-7 {
+            animation: myRotation7 2s ease infinite;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="swatch rotate-1"></div>
+    <div class="swatch purple rotate-2"></div>
+    <div class="swatch blue rotate-3"></div>
+    <div class="swatch green rotate-4"></div>
+    <div class="swatch yellow rotate-5"></div>
+    <div class="swatch orange rotate-6"></div>
+    <div class="swatch red rotate-7"></div>
+</body>
+
+</html>
