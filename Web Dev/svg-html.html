@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .frame {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        svg {
+            max-width: 75vmin;
+            max-height: 75vmin;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        .animated {
+            stroke-dashoffset: 1000;
+            animation: animated-path 3.5s linear forwards;
+        }
+
+        @keyframes animated-path {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            -webkit-animation: fadein .75s ease-in forwards;
+            animation: fadein .75s ease-in forwards;
+            -webkit-animation-delay: 2.2s;
+            animation-delay: 2.2s;
+        }
+
+        @keyframes fadein {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="frame">
+        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250.69 360"><defs><style>.cls-1{stroke-width: 2; fill:none; stroke: crimson; stroke-dasharray: 1000;}</style></defs><title>logo</title><path class="cls-1 animated" d="M195.11,316.35c54.77-54.84,56.21-142.2,3.22-195.12L0,319.84C53,372.75,140.34,371.19,195.11,316.35Z"/><path class="cls-1 animated" d="M52.83,42.56C-2,97.44-2.25,186,52.22,240.42L250.69,41.68C196.22-12.71,107.63-12.32,52.83,42.56Z"/></svg>
+
+        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250.69 360"><defs><style>.cls-2{fill: crimson;}</style></defs><title>logo</title><path class="cls-2 fade-in" d="M195.11,316.35c54.77-54.84,56.21-142.2,3.22-195.12L0,319.84C53,372.75,140.34,371.19,195.11,316.35Z"/><path class="cls-2 fade-in" d="M52.83,42.56C-2,97.44-2.25,186,52.22,240.42L250.69,41.68C196.22-12.71,107.63-12.32,52.83,42.56Z"/></svg>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f6f6f6;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        h1 {
+            font-size: 12vmin;
+            color: #222;
+        }
+
+        h2 {
+            position: fixed;
+            font-size: 3vmin;
+            right: 0;
+            top: 0;
+            margin-top: 25px;
+            margin-right: 25px;
+        }
+
+    </style>
+</head>
+
+<body onclick="flip();">
+    <h1 id="to-remove">Click to Begin</h1>
+    <h1 id="result"></h1>
+    <h2 id="click-counter">0</h2>
+</body>
+
+<script>
+    var counter = 0;
+
+    function flip() {
+
+        document.getElementById("to-remove").style.display = "none";
+
+        var number = Math.random();
+
+        if (number >= 0.5) {
+            number = 1;
+            counter++;
+        } else {
+            number = 0;
+            counter++;
+        }
+
+        if (number == 0) {
+            document.getElementById("result").style.color = "cornflowerblue";
+            document.getElementById("result").innerHTML = "Tails";
+        } else {
+            document.getElementById("result").style.color = "crimson";
+            document.getElementById("result").innerHTML = "Heads";
+        }
+
+        document.getElementById("click-counter").innerHTML = counter;
+    }
+
+</script>
+
+</html>

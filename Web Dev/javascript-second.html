@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h3 {
+            font-family: 'Helvtica', sans-serif;
+            font-size: 8vmin;
+            font-weight: 700;
+        }
+
+        h3:after {
+            color: rgb(0, 255, 255);
+            mix-blend-mode: difference;
+        }
+
+    </style>
+</head>
+
+<body onclick="randomColor();">
+
+    <h3 id="js-var"></h3>
+
+</body>
+
+<script>
+    /* console.log(color, color2, color3, bgColor); */
+
+    var bgColor;
+
+
+    //    function invert(color) { // var startIndex = color.indexOf('(') + 1; // var lastIndex = color.indexOf(')'); // // var values = color.substr(startIndex, lastIndex - startIndex).split(','); // // var r = 0; // var g = 0; // var b = 0; // // for (i = 0; i < values.length; i++) { // if (i==0 ) { // r=2 55 - values[i]; // } // if (i==1 ) { // g=2 55 - values[i]; // } // if (i==2 ) { // b=2 55 - values[i]; // } // } // // document.getElementById( "js-var").style.color='rgb(' + r + ',' + g + ',' + b + ')'; // }
+
+    function randomColor() {
+
+        var color = Math.random() * 255;
+        color = Math.floor(color);
+        var color2 = Math.random() * 255;
+        color2 = Math.floor(color2);
+        var color3 = Math.random() * 255;
+        color3 = Math.floor(color3);
+
+        bgColor = "rgb(" + color + ", " + color2 + ", " + color3 + ")";
+
+        document.body.style.backgroundColor = bgColor;
+
+        document.getElementById("js-var").innerHTML = bgColor + ";";
+
+        // Start of invert color
+
+        var luminance = {
+            r: 0.2126,
+            g: 0.7152,
+            b: 0.0722
+        };
+
+        var r = color;
+        var g = color2;
+        var b = color3;
+
+        var rgb = [r / 255, g / 255, b / 255];
+
+        for (var i = rgb.length; i--;) {
+            rgb[i] =
+                rgb[i] <= 0.03928 ?
+                rgb[i] / 12.92 :
+                Math.pow(((rgb[i] + 0.055) / 1.055), 2.4);
+        }
+        var thresh = ((luminance.r * rgb[0]) +
+            (luminance.g * rgb[1]) +
+            (luminance.b * rgb[2]));
+
+        if (thresh > 0.22) {
+            document.getElementById("js-var").style.color = "#000";
+        } else {
+            document.getElementById("js-var").style.color = "#fff";
+        }
+
+        console.log(rgb, thresh);
+
+    }
+
+
+    randomColor();
+
+</script>
+
+</html>
