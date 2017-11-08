@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f6f6f6;
+            font-family: 'Helvetica', sans-serif;
+            font-size: 3vmin;
+            color: cornflowerblue;
+        }
+
+        h1 {
+            position: fixed;
+            font-family: 'Helvetica', sans-serif;
+            font-size: 3vmin;
+            color: crimson;
+        }
+
+        p {
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        #intro {
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+
+    </style>
+</head>
+
+<body onload="fileDidLoad();">
+    <p style="position: fixed; left: 0; top: 0; padding-left: 20px; padding-top: 20px; font-size: 12pt; color: crimson; cursor: pointer; margin: 0 !important;" onclick="location.reload();">Reset</p>
+    <!--
+    <h1 id="intro">Drag .txt File Here To Get Started</h1>
+    <p id="generated">
+        - Dynamic Content will appear here -
+    </p>
+-->
+</body>
+
+<script>
+    // START Drag and Drop -- RobbyKraft
+
+    // 1) implement the callback function is "fileDidLoad(blob, mimeType)"
+
+    // creates a div for the drop zone
+    var dropZone = document.createElement("div");
+    var intro = document.getElementById("intro");
+    dropZone.innerHTML = "";
+    dropZone.id = "drop-zone"
+    dropZone.style = "background: black; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; opacity: 0.6; visibility: hidden; display:flex; align-items:center; justify-content:center;";
+    document.body.appendChild(dropZone);
+    var cutout = document.createElement("div");
+    cutout.style = "pointer-events:none; border-width: 15px; border-style: dashed; border-color: white; width:90%; height:90%;";
+    dropZone.appendChild(cutout);
+
+    function showDropZone() {
+        dropZone.style.visibility = "visible";
+        intro.style.visibility = "hidden"; //added
+    }
+
+    function hideDropZone() {
+        dropZone.style.visibility = "hidden";
+        intro.style.visibility = "visible"; //added
+    }
+
+    function allowDrag(e) {
+        if (true) { // Test that the item being dragged is a valid one
+            e.dataTransfer.dropEffect = 'copy';
+            e.preventDefault();
+        }
+    }
+
+    function handleDrop(e) {
+        Function.prototype.bindToEventHandler = function bindToEventHandler() {
+            var handler = this;
+            var boundParameters = Array.prototype.slice.call(arguments);
+            return function(e) {
+                e = e || window.event; // get window.event if e argument missing (in IE)   
+                boundParameters.unshift(e);
+                handler.apply(this, boundParameters);
+            }
+        };
+        e.preventDefault();
+        hideDropZone();
+        var dt = e.dataTransfer;
+        var files = dt.files;
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var reader = new FileReader();
+            //attach event handlers here...  
+            reader.readAsText(file);
+            addEventHandler(reader, 'loadend', function(e, file) {
+                fileDidLoad(this.result);
+                // mime type
+                // var colonIndex = this.result.indexOf(':');
+                // var semicolonIndex = this.result.indexOf(';');
+                // var mimeType = this.result.substr(colonIndex + 1, semicolonIndex - (colonIndex + 1));
+                // // strip type header block from base 64 contents
+                // var b64 = this.result.split(',')[1];
+                // var decoded = window.atob(b64);
+                // console.log(decoded);
+                // fileDidLoad(decoded, mimeType);
+            }.bindToEventHandler(file));
+        }
+        return true;
+    }
+    window.addEventListener('dragenter', function(e) {
+        showDropZone();
+    });
+    dropZone.addEventListener('dragenter', allowDrag);
+    dropZone.addEventListener('dragover', allowDrag);
+    dropZone.addEventListener('dragleave', function(e) {
+        hideDropZone();
+    });
+    dropZone.addEventListener('drop', handleDrop);
+
+    function addEventHandler(obj, evt, handler) {
+        if (obj.addEventListener) {
+            obj.addEventListener(evt, handler, false);
+        } // w3c
+        else if (obj.attachEvent) {
+            obj.attachEvent('on' + evt, handler);
+        } // ie
+        else {
+            obj['on' + evt] = handler;
+        } // old
+    }
+
+    //END Drag and Drop -- RobbyKraft
+
+    var words = "THE RAVEN.   Once upon a midnight dreary, while I pondered, weak and weary,  Over many a quaint and curious volume of forgotten lore,  While I nodded, nearly napping, suddenly there came a tapping,  As of some one gently rapping, rapping at my chamber door.  \"‘Tis some visiter,” I muttered, \"tapping at my chamber door--                           Only this, and nothing more.”   Ah, distinctly I remember it was in the bleak December,  And each separate dying ember wrought its ghost upon the floor.  Eagerly I wished the morrow;--vainly I had sought to borrow  From my books surcease of sorrow--sorrow for the lost Lenore--  For the rare and radiant maiden whom the angels name Lenore--                           Nameless here for evermore.   And the silken sad uncertain rustling of each purple curtain  Thrilled me--filled me with fantastic terrors never felt before;  So that now, to still the beating of my heart, I stood repeating  \"‘Tis some visiter entreating entrance at my chamber door--  Some late visiter entreating entrance at my chamber door;--                           This it is, and nothing more.”   Presently my soul grew stronger; hesitating then no longer,  \"Sir,” said I, \"or Madam, truly your forgiveness I implore;  But the fact is I was napping, and so gently you came rapping,  And so faintly you came tapping, tapping at my chamber door,  That I scarce was sure I heard you \"--here I opened wide the door;----                           Darkness there and nothing more.   Deep into that darkness peering, long I stood there wondering, fearing,  Doubting, dreaming dreams no mortal ever dared to dream before;  But the silence was unbroken, and the darkness gave no token,  And the only word there spoken was the whispered word, \"Lenore!”   This I whispered, and an echo murmured back the word, \"Lenore!”--                           Merely this, and nothing more.   Back into the chamber turning, all my soul within me burning,  Soon I heard again a tapping somewhat louder than before.  \"Surely,” said I, \"surely that is something at my window lattice;  Let me see, then, what thereat is, and this mystery explore--  Let my heart be still a moment and this mystery explore;--                           ‘Tis the wind and nothing more!”   Open here I flung the shutter, when, with many a flirt and flutter,  In there stepped a stately raven of the saintly days of yore;  Not the least obeisance made he; not an instant stopped or stayed he;  But, with mien of lord or lady, perched above my chamber door--  Perched upon a bust of Pallas just above my chamber door--                           Perched, and sat, and nothing more.   Then this ebony bird beguiling my sad fancy into smiling,  By the grave and stern decorum of the countenance it wore,  \"Though thy crest be shorn and shaven, thou,” I said, \"art sure no craven,  Ghastly grim and ancient raven wandering from the Nightly shore--  Tell me what thy lordly name is on the Night’s Plutonian shore!”                           Quoth the raven \"Nevermore.”   Much I marvelled this ungainly fowl to hear discourse so plainly,  Though its answer little meaning--little relevancy bore;  For we cannot help agreeing that no living human being  Ever yet was blessed with seeing bird above his chamber door--  Bird or beast upon the sculptured bust above his chamber door,                          With such name as \"Nevermore.”   But the raven, sitting lonely on the placid bust, spoke only  That one word, as if his soul in that one word he did outpour.  Nothing farther then he uttered--not a feather then he fluttered--  Till I scarcely more than muttered \"Other friends have flown before--  On the morrow _he_ will leave me, as my hopes have flown before.”                           Then the bird said \"Nevermore.”   Startled at the stillness broken by reply so aptly spoken,  \"Doubtless,” said I, \"what it utters is its only stock and store  Caught from some unhappy master whom unmerciful Disaster  Followed fast and followed faster till his songs one burden bore--  Till the dirges of his Hope that melancholy burden bore                          Of \"Never--nevermore.”   But the raven still beguiling all my sad soul into smiling,  Straight I wheeled a cushioned seat in front of bird, and bust and door;  Then, upon the velvet sinking, I betook myself to linking  Fancy unto fancy, thinking what this ominous bird of yore--  What this grim, ungainly, ghastly, gaunt and ominous bird of yore                          Meant in croaking \"Nevermore.”   This I sat engaged in guessing, but no syllable expressing  To the fowl whose fiery eyes now burned into my bosom’s core;  This and more I sat divining, with my head at ease reclining  On the cushion’s velvet lining that the lamplght gloated o’er,  But whose velvet violet lining with the lamplight gloating o’er,                           _She_ shall press, ah, nevermore!   Then, methought, the air grew denser, perfumed from an unseen censer  Swung by Angels whose faint foot-falls tinkled on the tufted floor.  \"Wretch,” I cried, \"thy God hath lent thee--by these angels he hath sent  thee  Respite--respite and nepenthe from thy memories of Lenore;  Quaff, oh quaff this kind nepenthe and forget this lost Lenore!”                            Quoth the raven, \"Nevermore.”   \"Prophet!” said I, \"thing of evil!--prophet still, if bird or devil!--  Whether Tempter sent, or whether tempest tossed thee here ashore,  Desolate yet all undaunted, on this desert land enchanted--  On this home by Horror haunted--tell me truly, I implore--  Is there--_is_ there balm in Gilead?--tell me--tell me, I implore!”                            Quoth the raven, \"Nevermore.”   \"Prophet!” said I, \"thing of evil--prophet still, if bird or devil!  By that Heaven that bends above us--by that God we both adore--  Tell this soul with sorrow laden if, within the distant Aidenn,  It shall clasp a sainted maiden whom the angels name Lenore--  Clasp a rare and radiant maiden whom the angels name Lenore.”                            Quoth the raven, \"Nevermore.”   \"Be that word our sign of parting, bird or fiend!” I shrieked, upstarting--  \"Get thee back into the tempest and the Night’s Plutonian shore!  Leave no black plume as a token of that lie thy soul hath spoken!  Leave my loneliness unbroken!--quit the bust above my door!  Take thy beak from out my heart, and take thy form from off my door!”                           Quoth the raven, \"Nevermore.”   And the raven, never flitting, still is sitting, still is sitting  On the pallid bust of Pallas just above my chamber door;  And his eyes have all the seeming of a demon’s that is dreaming,  And the lamp-light o’er him streaming throws his shadow on the floor;  And my soul from out that shadow that lies floating on the floor                           Shall be lifted--nevermore!";
+
+    function fileDidLoad(blob, mimeType) {
+        //        blob = blob.replace(/(\r\n|\n|\r)/gm, " "); // words = blob.split(/\s+/);
+
+        var dictionary = {};
+        var ngrams = [];
+        var ngramlength = 4;
+
+        for (var i = 0; i < words.length - ngramlength; i += ngramlength) {
+            var ngram = words.substring(i, i + ngramlength);
+            var next = words.substring(i + ngramlength, i + ngramlength + 2);
+            //            console.log(ngram, next);
+            if (dictionary[ngram] === undefined) {
+                dictionary[ngram] = [];
+            }
+            dictionary[ngram].push(next);
+            ngrams.push(ngram);
+        }
+
+        //        console.log(dictionary);
+
+        var startWord = ngrams[Math.floor(Math.random() * ngrams.length)];
+
+        var phrase = [startWord];
+
+//        var nextArray = dictionary[startWord]; // // console.log(whatisthis); // var nextWord = nextArray[Math.floor(Math.random() * nextArray.length)]; // // phrase.push(nextWord);
+        
+        for(var i=0; i<=20; i++)
+            {
+                var nextArray = dictionary[startWord];
+        //        console.log(whatisthis);
+        var nextWord = nextArray[Math.floor(Math.random() * nextArray.length)];
+
+        phrase.push(nextWord);
+            }
+
+        console.log(phrase);
+
+    }
+
+</script>
+
+</html>

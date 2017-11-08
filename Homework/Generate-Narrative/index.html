@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f6f6f6;
+            font-family: 'Helvetica', sans-serif;
+            font-size: 3vmin;
+            color: cornflowerblue;
+        }
+
+        h1 {
+            position: fixed;
+            font-family: 'Helvetica', sans-serif;
+            font-size: 3vmin;
+            color: crimson;
+        }
+
+        p {
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        #intro {
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+
+    </style>
+</head>
+
+<body>
+    <p style="position: fixed; left: 0; top: 0; padding-left: 20px; padding-top: 20px; font-size: 12pt; color: crimson; cursor: pointer; margin: 0 !important;" onclick="location.reload();">Reset</p>
+    <h1 id="intro">Drag .txt File Here To Get Started</h1>
+    <p id="generated">
+        <!--- Dynamic Content will appear here --->
+    </p>
+</body>
+
+<script>
+    // START Drag and Drop -- RobbyKraft
+
+    // 1) implement the callback function is "fileDidLoad(blob, mimeType)"
+
+    // creates a div for the drop zone
+    var dropZone = document.createElement("div");
+    var intro = document.getElementById("intro");
+    dropZone.innerHTML = "";
+    dropZone.id = "drop-zone"
+    dropZone.style = "background: black; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; opacity: 0.6; visibility: hidden; display:flex; align-items:center; justify-content:center;";
+    document.body.appendChild(dropZone);
+    var cutout = document.createElement("div");
+    cutout.style = "pointer-events:none; border-width: 15px; border-style: dashed; border-color: white; width:90%; height:90%;";
+    dropZone.appendChild(cutout);
+
+    function showDropZone() {
+        dropZone.style.visibility = "visible";
+        intro.style.visibility = "hidden"; //added
+    }
+
+    function hideDropZone() {
+        dropZone.style.visibility = "hidden";
+        intro.style.visibility = "visible"; //added
+    }
+
+    function allowDrag(e) {
+        if (true) { // Test that the item being dragged is a valid one
+            e.dataTransfer.dropEffect = 'copy';
+            e.preventDefault();
+        }
+    }
+
+    function handleDrop(e) {
+        Function.prototype.bindToEventHandler = function bindToEventHandler() {
+            var handler = this;
+            var boundParameters = Array.prototype.slice.call(arguments);
+            return function(e) {
+                e = e || window.event; // get window.event if e argument missing (in IE)   
+                boundParameters.unshift(e);
+                handler.apply(this, boundParameters);
+            }
+        };
+        e.preventDefault();
+        hideDropZone();
+        var dt = e.dataTransfer;
+        var files = dt.files;
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var reader = new FileReader();
+            //attach event handlers here...  
+            reader.readAsText(file);
+            addEventHandler(reader, 'loadend', function(e, file) {
+                fileDidLoad(this.result);
+                // mime type
+                // var colonIndex = this.result.indexOf(':');
+                // var semicolonIndex = this.result.indexOf(';');
+                // var mimeType = this.result.substr(colonIndex + 1, semicolonIndex - (colonIndex + 1));
+                // // strip type header block from base 64 contents
+                // var b64 = this.result.split(',')[1];
+                // var decoded = window.atob(b64);
+                // console.log(decoded);
+                // fileDidLoad(decoded, mimeType);
+            }.bindToEventHandler(file));
+        }
+        return true;
+    }
+    window.addEventListener('dragenter', function(e) {
+        showDropZone();
+    });
+    dropZone.addEventListener('dragenter', allowDrag);
+    dropZone.addEventListener('dragover', allowDrag);
+    dropZone.addEventListener('dragleave', function(e) {
+        hideDropZone();
+    });
+    dropZone.addEventListener('drop', handleDrop);
+
+    function addEventHandler(obj, evt, handler) {
+        if (obj.addEventListener) {
+            obj.addEventListener(evt, handler, false);
+        } // w3c
+        else if (obj.attachEvent) {
+            obj.attachEvent('on' + evt, handler);
+        } // ie
+        else {
+            obj['on' + evt] = handler;
+        } // old
+    }
+
+    //END Drag and Drop -- RobbyKraft
+
+    var words;
+
+    function fileDidLoad(blob, mimeType) {
+        blob = blob.replace(/(\r\n|\n|\r)/gm, " ");
+        words = blob.split(/\s+/);
+
+        intro.style.visibility = "hidden";
+        var dictionary = {};
+
+        for (var i = 0; i < words.length - 1; i++) {
+            var word = words[i];
+            var nextword = words[i + 1];
+            if (dictionary[word] == undefined) {
+                dictionary[word] = [];
+            }
+            dictionary[word].push(nextword);
+        }
+
+        //        var element = document.getElementById('animated'); // element.addEventListener('webkitAnimationEnd', function() { // this.style.webkitAnimationName = ''; // }, false);
+
+        //console.log(dictionary);
+        var start_word = words[Math.floor(Math.random() * words.length)];
+        console.log("Start Word", start_word);
+        //        console.log(start_word[0] === start_word[0].toUpperCase());
+        while ((start_word[0] === start_word[0].toUpperCase()) == false) {
+            start_word = words[Math.floor(Math.random() * words.length)];
+        }
+
+        var nextwords = dictionary[start_word];
+
+        console.log(nextwords);
+
+        var nextword = nextwords[Math.floor(Math.random() * nextwords.length)];
+
+        console.log(nextword);
+
+        var phrase = [start_word];
+
+        for (var i = 0; i < 50; i++) {
+            var word = phrase[i];
+            var nextwords = dictionary[word];
+            var nextword = nextwords[Math.floor(Math.random() * nextwords.length)];
+            phrase.push(nextword);
+        }
+
+        console.log("Phrase: ", phrase);
+        var finalphrase = "";
+        for (var i = 0; i < phrase.length; i++) {
+            finalphrase += phrase[i] + " ";
+        }
+        console.log("Final Phrase:", finalphrase);
+        var finalphrasePunchLess = finalphrase.replace(/[^\w\s]|_/g, "");
+        console.log(finalfinalphrase);
+        var finalfinalphrase = finalphrasePunchLess.replace(/\s+/g, " ");
+        console.log(finalfinalphrase);
+        document.getElementById("generated").innerHTML = finalfinalphrase;
+
+        //        element.style.webkitAnimationName = 'fade_in';
+    }
+
+</script>
+
+</html>
