@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            overflow: hidden;
+        }
+
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background: #f1f1f1;
+            position: absolute;
+            margin-top: -20px;
+            margin-left: -20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+</body>
+
+<script>
+    var hue = 0;
+    document.onmousemove = function(event) {
+        // console.log(event.pageX);
+        var a = document.createElement("div");
+        a.className = "circle";
+        a.style.top = event.pageY + "px";
+        a.style.left = event.pageX + "px";
+        //        var hue = event.pageX;
+        a.style.background = "hsl(" + hue + ", 100%, 50%)";
+        document.body.appendChild(a);
+        hue++;
+    }
+
+</script>
+
+</html>

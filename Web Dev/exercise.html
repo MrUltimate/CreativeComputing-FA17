@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            background: #f1f1f1;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            font-family: 'American Typewriter', serif;
+            overflow: hidden;
+        }
+
+        #text {
+            width: 80vmin;
+            height: 80vmin;
+            background: white;
+            padding: 2em;
+        }
+
+    </style>
+</head>
+
+<body>
+    <p id="text"></p>
+</body>
+<script>
+    document.onkeypress = function(event) {
+        document.getElementById("text").innerHTML += event.key;
+    }
+
+</script>
+
+</html>
