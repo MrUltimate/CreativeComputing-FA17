@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body{
+            background: black;
+        }
+
+        div.tvFrame {
+            position: relative;
+            margin-top: 10vmin;
+            margin-left: 5vmin;
+            margin-right: 5vmin;
+            padding-top: 25px;
+            padding-bottom: 65.5%;
+            height: 0;
+            -webkit-box-align: center;
+            -webkit-box-pack: center;
+            display: -webkit-box;
+        }
+
+        div.tvFrame iframe {
+            box-sizing: border-box;
+            background: url(frame.png) center center no-repeat;
+            width: 560px;
+            height: 315px;
+            background-size: contain;
+            padding: 5.55% 1.60% 15.40% 2%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+
+<body onload="watch_tv();">
+    <div id="tvFrame" class="tvFrame">
+        
+    </div>
+</body>
+<script>
+    //    document.onkeydown = function(event) {
+    //        console.log(event);
+    //    }
+
+    function watch_tv() {
+    var channel1 = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Q0CbN8sfihY?autoplay=1&showinfo=0&controls=0\" frameborder=\"0\" allowfullscreen=\"0\"></iframe>";
+    var channel2 = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/D9YZw_X5UzQ?autoplay=1&showinfo=0&controls=0\" frameborder=\"0\" allowfullscreen=\"0\"></iframe>";
+    var channel3 = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/r9-DM9uBtVI?autoplay=1&showinfo=0&controls=0\" frameborder=\"0\" allowfullscreen=\"0\"></iframe>";
+
+        document.getElementById("tvFrame").innerHTML = channel1;
+        
+    var channels = [channel1, channel2, channel3];
+    var i = 0;
+    document.onkeydown = function(event) {
+        if(event.keyCode == 40 || event.keyCode == 39)
+            {
+                if(i<2){
+                document.getElementById("tvFrame").innerHTML = channels[i+1];
+                i++;
+                console.log(i);
+                }
+                else if(i==2)
+                {
+                    document.getElementById("tvFrame").innerHTML = channels[0];
+                    i=0;
+                    console.log(i);
+                }
+            }
+        else if(event.keyCode == 38 || event.keyCode == 37)
+            {
+                if(i>0)
+                    {
+                        document.getElementById("tvFrame").innerHTML = channels[i-1];
+                        i--;
+                        console.log(i);
+                    }
+                else if(i==0)
+                    {
+                        document.getElementById("tvFrame").innerHTML = channels[2];
+                        i=2;
+                        console.log(i);
+                    }
+            }
+        
+    }
+    }
+
+
+</script>
+
+</html>
