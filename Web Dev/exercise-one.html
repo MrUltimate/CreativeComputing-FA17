@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise Competition</title>
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: black;
+        /*display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;*/
+      }
+
+      /*.circle {
+        height: 100vmin;
+        width: 100vmin;
+        border-radius: 100%;
+        background: white;
+      }*/
+
+      #numbers{
+        color: white;
+        font-family: 'Helvetica', sans-serif;
+        font-size: 14pt;
+        text-align: center;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body onload="run();">
+      <!-- <p id="numbers"></p> -->
+  </body>
+  <script>
+   function run(){
+     for(var i=0; i<=100; i++)
+     {
+       if(i%2==0 && i!=0)
+       {
+         document.getElementById("numbers").innerHTML += i + "<br /> <br />";
+       }
+     }
+   }
+  </script>
+</html>

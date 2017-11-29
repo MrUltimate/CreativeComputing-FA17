@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style media="screen">
+      html, body{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="main-canvas"></canvas>
+  </body>
+  <script>
+    var canvas = document.getElementById("main-canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    var context = canvas.getContext("2d");
+    // context.moveTo(0,0);
+    // context.lineTo(100,100);
+    // context.stroke();
+    var x, y;
+    x = window.innerWidth/2;
+    y = window.innerHeight/2;
+    context.moveTo(x,y);
+    var step = 60;
+
+    function loop(){
+      x = x + (Math.random()-0.5)*step;
+      y = y + (Math.random()-0.5)*step;
+      if(x>window.innerWidth)
+      {
+        x=window.innerWidth;
+      }
+      if(y>window.innerHeight)
+      {
+        y=window.innerHeight;
+      }
+      if(x<0){x=0;}
+      if(y<0){y=0;}
+      context.lineTo(x, y);
+      context.stroke();
+    }
+    //the delay between frames (in milliseconds)
+    setInterval(loop, 1000/600);
+  </script>
+</html>
