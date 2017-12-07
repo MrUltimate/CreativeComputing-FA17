@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Works | Shiv | Creative Computing</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="normalize.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script>
+    document.documentElement.className = 'js';
+    var supportsCssVars = function() {
+      var s = document.createElement('style'),
+      support;
+
+      s.innerHTML = "root: { --tmp-var: bold; }";
+      document.head.appendChild(s);
+      support = !!(window.CSS && window.CSS.supports && window.CSS.supports('font-weight', 'var(--tmp-var)'));
+      s.parentNode.removeChild(s);
+      return support;
+    }
+    if (!supportsCssVars()) alert('Please view this demo in a modern browser that supports CSS Variables.')
+  </script>
+</head>
+
+<body class="demo-2 loading">
+  <div class="logo-wrapper">
+    <div class="menu"></div>
+    <div class="inner-logo-wrapper">
+      <img src="img/logo.png" alt="logo" class="logo" onclick="location.reload(); location.href='index.html'">
+    </div>
+    <div class="switch">
+      <input type="checkbox" id="switch" onclick="setTimeout(load_simple, 300);" autocomplete="off"/><label for="switch">Toggle</label>
+    </div>
+  </div>
+  <main>
+    <div class="morph-wrap">
+      <svg class="morph" width="1400" height="770" viewBox="0 0 1400 770">
+        <path d="M 262.9,252.2 C 210.1,338.2 212.6,487.6 288.8,553.9 372.2,626.5 511.2,517.8 620.3,536.3 750.6,558.4 860.3,723 987.3,686.5 1089,657.3 1168,534.7 1173,429.2 1178,313.7 1096,189.1 995.1,130.7 852.1,47.07 658.8,78.95 498.1,119.2 410.7,141.1 322.6,154.8 262.9,252.2 Z"/>
+      </svg>
+    </div>
+    <div class="content content--fixed">
+      <div class="deco deco--title">2017 Shivam Sinha | Creative Computing</div>
+    </div>
+    <div class="content-wrap">
+      <div class="content content--layout content--layout-1">
+        <img class="content__img" src="img/3.jpg" alt="Some image" />
+        <h3 class="content__title">story</h3>
+        <p class="content__author">Assignment Homework</p>
+        <p class="content__desc">Lost or found? That's the question today.</p>
+        <a href="#" class="content__link">Explore</a>
+      </div>
+    </div>
+    <div class="content-wrap">
+      <div class="content content--layout content--layout-2">
+        <img class="content__img" src="img/4.jpg" alt="Some image" />
+        <h3 class="content__title">ext. css</h3>
+        <p class="content__author">Assignment Homework</p>
+        <p class="content__desc">The neverending quest, once and forever.</p>
+        <a href="#" class="content__link">Explore</a>
+      </div>
+    </div>
+    <div class="content-wrap">
+      <div class="content content--layout content--layout-3">
+        <img class="content__img" src="img/1.jpg" alt="Some image" />
+        <h3 class="content__title">flag</h3>
+        <p class="content__author">Assignment Homework</p>
+        <p class="content__desc">Finding the heart when paradise is lost.</p>
+        <a href="#" class="content__link">Explore</a>
+      </div>
+    </div>
+    <div class="content-wrap">
+      <div class="content content--layout content--layout-4">
+        <img class="content__img" src="img/2.jpg" alt="Some image" />
+        <h3 class="content__title">mad libs</h3>
+        <p class="content__author">Assignment Homework</p>
+        <p class="content__desc">The outer bounds of the world, from within.</p>
+        <a href="#" class="content__link">Explore</a>
+      </div>
+    </div>
+    <div class="content-wrap">
+      <div class="content content--layout content--layout-5">
+        <img class="content__img" src="img/5.jpg" alt="Some image" />
+        <h3 class="content__title">mondrain</h3>
+        <p class="content__author">Assignment Homework</p>
+        <p class="content__desc">Frank's work and nothing more.</p>
+        <a href="#" class="content__link">Explore</a>
+      </div>
+    </div>
+    <div class="content-wrap">
+      <div class="content content--layout content--layout-6">
+        <img class="content__img" src="img/5.jpg" alt="Some image" />
+        <h3 class="content__title">overlay</h3>
+        <p class="content__author">Assignment Homework</p>
+        <p class="content__desc">Frank's work and nothing more.</p>
+        <a href="#" class="content__link">Explore Animated</a>
+      </div>
+    </div>
+    <div class="content-wrap">
+      <div class="content content--layout content--layout-7">
+        <img class="content__img" src="img/5.jpg" alt="Some image" />
+        <h3 class="content__title">paper-js</h3>
+        <p class="content__author">Assignment Homework</p>
+        <p class="content__desc">Frank's work and nothing more.</p>
+        <a href="#" class="content__link">Explore</a>
+      </div>
+    </div>
+    <div class="content-wrap">
+      <div class="content content--layout content--layout-8">
+        <img class="content__img" src="img/5.jpg" alt="Some image" />
+        <h3 class="content__title">xml tree</h3>
+        <p class="content__author">Assignment Homework</p>
+        <p class="content__desc">Frank's work and nothing more.</p>
+        <a href="#" class="content__link">Explore</a>
+      </div>
+    </div>
+    <div class="content-wrap">
+      <div class="content content--layout content--layout-9">
+        <img class="content__img" src="img/5.jpg" alt="Some image" />
+        <h3 class="content__title">narrative</h3>
+        <p class="content__author">Assignment Homework</p>
+        <p class="content__desc">Frank's work and nothing more.</p>
+        <a href="#" class="content__link">Explore</a>
+      </div>
+    </div>
+    <div class="content-wrap">
+      <div class="content content--layout content--layout-10">
+        <img class="content__img" src="img/5.jpg" alt="Some image" />
+        <h3 class="content__title">tv js</h3>
+        <p class="content__author">Assignment Homework</p>
+        <p class="content__desc">Frank's work and nothing more.</p>
+        <a href="#" class="content__link">Explore</a>
+      </div>
+    </div>
+    <div class="content-wrap">
+      <div class="content content--layout content--layout-11">
+        <img class="content__img" src="img/5.jpg" alt="Some image" />
+        <h3 class="content__title">timer app</h3>
+        <p class="content__author">Assignment Homework</p>
+        <p class="content__desc">Frank's work and nothing more.</p>
+        <a href="#" class="content__link">Explore</a>
+      </div>
+    </div>
+    <!-- Related demos -->
+    <!-- <section class="content content--related">
+      <p class="content__info">If you enjoyed this demo you might also like:</p>
+      <a class="content__related-item" href="https://tympanus.net/Development/ElasticSVGElements/">
+        <img class="content__related-img" src="img/related/ItemRevealer.jpg">
+        <h3 class="content__related-title">Elastic SVG Elements</h3>
+      </a>
+      <a class="content__related-item" href="https://tympanus.net/Development/ItemRevealer/">
+        <img class="content__related-img" src="img/related/ElasticSVGElements.jpg">
+        <h3 class="content__related-title">Item Revealer</h3>
+      </a>
+    </section> -->
+  </main>
+
+  <a href="#cd-nav" class="cd-nav-trigger">Menu
+    <span class="cd-nav-icon"></span>
+
+    <svg x="0px" y="0px" width="54px" height="54px" viewBox="0 0 54 54">
+      <circle fill="transparent" stroke="#656e79" stroke-width="1" cx="27" cy="27" r="25" stroke-dasharray="157 157" stroke-dashoffset="157"></circle>
+    </svg>
+  </a>
+
+  <div id="cd-nav" class="cd-nav">
+    <div class="cd-navigation-wrapper">
+      <div class="cd-half-block">
+        <h2>Navigation</h2>
+
+        <nav>
+          <ul class="cd-primary-nav">
+            <li><a href="#0" class="selected">The team</a></li>
+            <li><a href="#0">Our services</a></li>
+            <li><a href="#0">Our projects</a></li>
+            <li><a href="#0">Start a project</a></li>
+            <li><a href="#0">Contact us</a></li>
+          </ul>
+        </nav>
+      </div><!-- .cd-half-block -->
+
+      <div class="cd-half-block">
+        <address>
+          <ul class="cd-contact-info">
+            <li><a href="mailto:info@myemail.co">info@myemail.co</a></li>
+            <li>0244-12345678</li>
+            <li>
+              <span>MyStreetName 24</span>
+              <span>W1234X</span>
+              <span>London, UK</span>
+            </li>
+          </ul>
+        </address>
+      </div> <!-- .cd-half-block -->
+    </div> <!-- .cd-navigation-wrapper -->
+  </div> <!-- .cd-nav -->
+<a href="#0" class="cd-top">Top</a>
+</body>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/anime.min.js"></script>
+<script src="js/scrollMonitor.js"></script>
+<script src="js/main.js"></script>
+<script>
+jQuery(document).ready(function($){
+  var isLateralNavAnimating = false;
+
+  //open/close lateral navigation
+  $('.cd-nav-trigger').on('click', function(event){
+    event.preventDefault();
+    //stop if nav animation is running
+    if( !isLateralNavAnimating ) {
+      if($(this).parents('.csstransitions').length > 0 ) isLateralNavAnimating = true;
+
+      $('body').toggleClass('navigation-is-open');
+      $('.cd-navigation-wrapper').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+        //animation is over
+        isLateralNavAnimating = false;
+      });
+    }
+  });
+});
+</script>
+<script type="text/javascript">
+  document.getElementById('switch').checked = false;
+  //switch redirect
+  function load_simple() {
+    location.reload();
+    location.href='simple.html';
+  }
+</script>
+<script>
+jQuery(document).ready(function($){
+  // browser window scroll (in pixels) after which the "back to top" link is shown
+  var offset = 9000,
+    //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+    // offset_opacity = 1200,
+    //duration of the top scrolling animation (in ms)
+    scroll_top_duration = 700,
+    //grab the "back to top" link
+    $back_to_top = $('.cd-top');
+
+  //hide or show the "back to top" link
+  $(window).scroll(function(){
+    ( $(this).scrollTop() > offset ) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
+    if( $(this).scrollTop() > offset_opacity ) {
+      $back_to_top.addClass('cd-fade-out');
+    }
+  });
+
+  //smooth scroll to top
+  $back_to_top.on('click', function(event){
+    event.preventDefault();
+    $('body,html').animate({
+      scrollTop: 0 ,
+      }, scroll_top_duration
+    );
+  });
+
+});
+</script>
+</html>

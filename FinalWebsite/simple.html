@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="simplecss.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <title>Simple Works | Shiv | Creative Computing</title>
+</head>
+
+<body>
+  <!-- MENU CODE -->
+  <a href="#cd-nav" class="cd-nav-trigger" id="menu-trigger">Menu
+		<span class="cd-nav-icon"></span>
+		<svg x="0px" y="0px" width="54px" height="54px" viewBox="0 0 54 54">
+			<circle fill="transparent" stroke="#656e79" stroke-width="1" cx="27" cy="27" r="25" stroke-dasharray="157 157" stroke-dashoffset="157"></circle>
+		</svg>
+	</a>
+
+	<div id="cd-nav" class="cd-nav">
+		<div class="cd-navigation-wrapper">
+			<div class="cd-half-block">
+				<h2>Navigation</h2>
+
+				<nav>
+					<ul class="cd-primary-nav">
+						<li><a href="#0">Projects</a></li>
+						<li><a href="#0">GitHub</a></li>
+						<li><a href="#0">About Course</a></li>
+						<li><a href="#0">About Me</a></li>
+					</ul>
+				</nav>
+			</div><!-- .cd-half-block -->
+      <div class="cd-half-block">
+				<address>
+					<ul class="cd-contact-info">
+						<li><a href="mailto:info@myemail.co">info@myemail.co</a></li>
+						<li>0244-12345678</li>
+						<li>
+							<span>MyStreetName 24</span>
+							<span>W1234X</span>
+							<span>London, UK</span>
+						</li>
+					</ul>
+				</address>
+			</div> <!-- .cd-half-block -->
+		</div> <!-- .cd-navigation-wrapper -->
+	</div> <!-- .cd-nav -->
+  <main>
+  <div class="header-wrapper">
+<div class="menu"></div>
+    <div class="logo">
+      <img src="logo.png" onclick="location.reload(); location.href='simple.html';"/>
+    </div>
+    <div class="switch">
+      <input type="checkbox" id="switch" onclick="setTimeout(load_simple, 300);" autocomplete="off"/><label for="switch">Toggle</label>
+    </div>
+  </div>
+  <div class="wrapper">
+    <a href="#">
+    <div class="project-simple-grid">
+      <h1>CHOOSE YOUR STORY</h1>
+      <p>
+        Project description goes here.
+      </p>
+    </div>
+    </a>
+    <a href="#">
+    <div class="project-simple-grid">
+      <h1>EXTERNAL STYLESHEET</h1>
+      <p>
+        Project description goes here.
+      </p>
+    </div>
+  </a>
+  <a href="#">
+    <div class="project-simple-grid">
+      <h1>FLAG</h1>
+      <p>
+        Project description goes here.
+      </p>
+    </div>
+  </a>
+  <a href="#">
+    <div class="project-simple-grid">
+      <h1>MAD LIBS</h1>
+      <p>
+        Project description goes here.
+      </p>
+    </div>
+  </a>
+  <a href="#">
+    <div class="project-simple-grid">
+      <h1>MONDRAIN</h1>
+      <p>
+        Project description goes here.
+      </p>
+    </div>
+  </a>
+  <a href="#">
+    <div class="project-simple-grid">
+      <h1>OVERLAYING DIVS</h1>
+      <p>
+        Project description goes here.
+      </p>
+    </div>
+  </a>
+  <a href="#">
+    <div class="project-simple-grid">
+      <h1>OVERLAYING DIVS ANIMATED</h1>
+      <p>
+        Project description goes here.
+      </p>
+    </div>
+  </a>
+  <a href="#">
+    <div class="project-simple-grid">
+      <h1>PAPER-JS</h1>
+      <p>
+        Project description goes here.
+      </p>
+    </div>
+  </a>
+  <a href="#">
+    <div class="project-simple-grid">
+      <h1>XML BINARY TREE</h1>
+      <p>
+        Project description goes here.
+      </p>
+    </div>
+  </a>
+  <a href="#">
+    <div class="project-simple-grid">
+      <h1>GENERATED NARRATIVE</h1>
+      <p>
+        Project description goes here.
+      </p>
+    </div>
+  </a>
+  <a href="#">
+    <div class="project-simple-grid">
+      <h1>TV CHANNELS</h1>
+      <p>
+        Project description goes here.
+      </p>
+    </div>
+  </a>
+  <a href="#">
+    <div class="project-simple-grid">
+      <h1>TIMER WEBAPP</h1>
+      <p>
+        Project description goes here.
+      </p>
+    </div>
+  </a>
+  </div>
+</main>
+</body>
+<script>
+  jQuery(document).ready(function($) {
+    var isLateralNavAnimating = false;
+
+    //open/close lateral navigation
+    $('.cd-nav-trigger').on('click', function(event) {
+      event.preventDefault();
+      //stop if nav animation is running
+      if (!isLateralNavAnimating) {
+        if ($(this).parents('.csstransitions').length > 0) isLateralNavAnimating = true;
+
+        $('body').toggleClass('navigation-is-open');
+        $('.cd-navigation-wrapper').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function() {
+          //animation is over
+          isLateralNavAnimating = false;
+        });
+      }
+    });
+  });
+</script>
+<script>
+    document.getElementById('switch').checked = true;
+    //switch redirect
+    function load_simple() {
+      location.reload();
+      location.href='index.html';
+    }
+</script>
+
+</html>

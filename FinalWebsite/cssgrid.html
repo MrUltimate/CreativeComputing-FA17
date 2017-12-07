@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      height: 100%;
+    }
+
+    .wrapper{
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-gap: 1em;
+      /*grid-template-rows: 1fr 1fr;*/
+      grid-auto-rows: minmax(auto, auto);
+    }
+
+    .wrapper > div{
+      background: cornflowerblue;
+      padding: 1em;
+    }
+
+    .wrapper > div:nth-child(odd){
+      background: crimson;
+    }
+
+    .header-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 4fr 1fr;
+      grid-auto-rows: 5em;
+      grid-row-gap: 2em;
+      padding-top: .5em;
+      padding-bottom: 1em;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .header-wrapper > div{
+      background: cornflowerblue;
+      padding: 1em;
+    }
+
+    .header-wrapper > div:nth-child(odd){
+      background: crimson;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="header-wrapper">
+    <div class="menu">Menu</div>
+    <div class="logo">
+      <img src="logo.png"/>
+    </div>
+    <div class="search">Search</div>
+  </div>
+  <div class="wrapper">
+    <div>This is box 1</div>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ratione debitis voluptatem, ex aspernatur quia dolores, voluptate, molestiae, impedit recusandae itaque! Repellendus distinctio mollitia, voluptates odit provident, vero. Quidem debitis deleniti obcaecati recusandae, natus velit necessitatibus unde aspernatur possimus eius exercitationem vitae quis, ratione architecto dolor porro a cupiditate molestias reiciendis praesentium quibusdam sit laudantium culpa ipsam. Repudiandae modi, ut, nobis vitae nisi possimus alias amet itaque eum illo unde ad quibusdam explicabo veritatis! Odio, sequi laudantium. Eius eum debitis aut id velit nam praesentium facere molestias ducimus ipsam fuga repellat labore iure magni corporis omnis dolores, corrupti in, rem minus quam consequatur voluptates, hic fugit? Nobis commodi fugit aspernatur quis ab quaerat in, iste, inventore blanditiis neque tempore praesentium!</div>
+    <div>This is box 3</div>
+    <div>This is box 4</div>
+    <div>This is box 5</div>
+    <div>This is box 6</div>
+  </div>
+</body>
+</html>
