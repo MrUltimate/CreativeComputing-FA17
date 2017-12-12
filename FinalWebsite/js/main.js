@@ -174,7 +174,7 @@
 			tx: -100,
 			ty: 200,
 			fill: {
-				color: '#bfb37c',
+				color: '#E0C130',
 				duration: 500,
 				easing: 'linear'
 			},
@@ -301,11 +301,11 @@
 			},
 			animation: {
 				path: {
-					duration: 1000,
+					duration: 2000,
 					easing: 'easeInOutQuad'
 				},
 				svg: {
-					duration: 1000,
+					duration: 2000,
 					easing: 'easeInOutQuad'
 				}
 			}
