@@ -26,6 +26,19 @@ body {
   padding-top: 10px;
 }
 
+main {
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	/* Force Hardware Acceleration in WebKit */
+  -webkit-transition: -webkit-transform 0.7s;
+  -moz-transition: -moz-transform 0.7s;
+  transition: transform 0.7s;
+  -webkit-transition-timing-function: cubic-bezier(0.91, 0.01, 0.6, 0.99);
+  -moz-transition-timing-function: cubic-bezier(0.91, 0.01, 0.6, 0.99);
+  transition-timing-function: cubic-bezier(0.91, 0.01, 0.6, 0.99);
+}
+
 img {
   max-width: 85%;
   max-height: 85%;
@@ -101,6 +114,14 @@ a:hover{
 
 .project-simple-grid > p {
   font-family: 'Roboto', sans-serif;
+}
+
+@media only screen
+and (max-width : 1024px)  {
+	.wrapper {
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 1.2em;
+	}
 }
 
 @media only screen and (max-width: 650px) {
@@ -436,6 +457,11 @@ label:active:after {
 .cd-nav .cd-contact-info a {
   color: black;
 }
+
+.cd-contact-info a:hover {
+	color: crimson;
+}
+
 .cd-nav .cd-contact-info span {
   display: block;
 }

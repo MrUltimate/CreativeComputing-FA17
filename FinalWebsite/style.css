@@ -365,16 +365,20 @@ body {
 .cd-nav .cd-primary-nav a {
   font-family: "Roboto", san-serif;
   font-size: 1.2rem;
-  color: darkgray;
+  color: #fff;
   display: inline-block;
   transition: .5s ease-in;
 }
-.cd-nav .cd-primary-nav a.selected {
+
+.cd-primary-nav a:hover{
+	color: crimson;
+}
+/*.cd-nav .cd-primary-nav a.selected {
   color: #ffffff;
 }
 .no-touch .cd-nav .cd-primary-nav a:hover {
   color: crimson;
-}
+}*/
 .cd-nav .cd-contact-info {
   margin-top: 150px;
 }
@@ -388,6 +392,11 @@ body {
 .cd-nav .cd-contact-info a {
   color: #ffffff;
 }
+
+.cd-contact-info a:hover {
+	color: crimson;
+}
+
 .cd-nav .cd-contact-info span {
   display: block;
 }
@@ -593,7 +602,7 @@ a:focus {
 .content__img {
 	grid-column: 1 / 3;
 	grid-row: 1 / 3;
-	opacity: 0.8;
+	opacity: 0.9;
 	width: 300px;
 	height: 300px;
 }
